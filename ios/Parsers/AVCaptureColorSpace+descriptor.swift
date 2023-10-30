@@ -26,11 +26,12 @@ extension AVCaptureColorSpace {
       return
     case "appleLog":
       if #available(iOS 17, *) {
-        self = 3
-      } else {
-        throw EnumParserError.unsupportedOS(supportedOnOS: "17")
+        let appleLog = AVCaptureColorSpace(rawValue: 3)
+        if let result = appleLog {
+          self = result
+        }
       }
-      return
+     throw EnumParserError.unsupportedOS(supportedOnOS: "17")
     default:
       throw EnumParserError.invalidValue
     }
