@@ -26,7 +26,7 @@ extension AVCaptureColorSpace {
       return
     case "appleLog":
       if #available(iOS 17, *) {
-        self = .appleLog
+        self = 3
       } else {
         throw EnumParserError.unsupportedOS(supportedOnOS: "17")
       }
