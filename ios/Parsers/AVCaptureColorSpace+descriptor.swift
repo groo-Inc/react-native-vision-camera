@@ -24,6 +24,13 @@ extension AVCaptureColorSpace {
     case "srgb":
       self = .sRGB
       return
+    case "appleLog":
+      if #available(iOS 17, *) {
+        self = 3
+      } else {
+        throw EnumParserError.unsupportedOS(supportedOnOS: "17")
+      }
+      return
     default:
       throw EnumParserError.invalidValue
     }
@@ -38,7 +45,7 @@ extension AVCaptureColorSpace {
     case .sRGB:
       return "srgb"
     default:
-      fatalError("AVCaptureDevice.Position has unknown state.")
+      return "unknown"
     }
   }
 }
