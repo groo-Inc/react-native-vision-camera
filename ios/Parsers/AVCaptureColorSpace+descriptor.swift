@@ -48,3 +48,4 @@ extension AVCaptureColorSpace {
       return "unknown"
     }
   }
+}
